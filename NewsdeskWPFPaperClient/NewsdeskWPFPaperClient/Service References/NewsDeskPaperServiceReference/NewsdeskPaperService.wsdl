@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="NewsdeskPaperService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:49799/NewsdeskPaperService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:49799/NewsdeskPaperService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:49799/NewsdeskPaperService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DomainClasses" />
+      <xsd:import schemaLocation="http://localhost:49799/NewsdeskPaperService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="INewsdeskPaperService_SendEmailHasRegister_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailHasRegister" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskPaperService_SendEmailHasRegister_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailHasRegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskPaperService_SendEmailHasUnRegister_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailHasUnRegister" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskPaperService_SendEmailHasUnRegister_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailHasUnRegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskPaperService_GetAllCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCategories" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskPaperService_GetAllCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskPaperService_GetAllArticlesTopFive_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllArticlesTopFive" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskPaperService_GetAllArticlesTopFive_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllArticlesTopFiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskPaperService_GetAllArticles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllArticles" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskPaperService_GetAllArticles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllArticlesResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskPaperService_GetAllArticlesInCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllArticlesInCategory" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskPaperService_GetAllArticlesInCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllArticlesInCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskPaperService_RegisterSubscriber_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterSubscriber" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskPaperService_RegisterSubscriber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterSubscriberResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskPaperService_UnRegisterSubscriber_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnRegisterSubscriber" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskPaperService_UnRegisterSubscriber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnRegisterSubscriberResponse" />
+  </wsdl:message>
+  <wsdl:portType name="INewsdeskPaperService">
+    <wsdl:operation name="SendEmailHasRegister">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskPaperService/SendEmailHasRegister" message="tns:INewsdeskPaperService_SendEmailHasRegister_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskPaperService/SendEmailHasRegisterResponse" message="tns:INewsdeskPaperService_SendEmailHasRegister_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEmailHasUnRegister">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskPaperService/SendEmailHasUnRegister" message="tns:INewsdeskPaperService_SendEmailHasUnRegister_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskPaperService/SendEmailHasUnRegisterResponse" message="tns:INewsdeskPaperService_SendEmailHasUnRegister_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskPaperService/GetAllCategories" message="tns:INewsdeskPaperService_GetAllCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskPaperService/GetAllCategoriesResponse" message="tns:INewsdeskPaperService_GetAllCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllArticlesTopFive">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskPaperService/GetAllArticlesTopFive" message="tns:INewsdeskPaperService_GetAllArticlesTopFive_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskPaperService/GetAllArticlesTopFiveResponse" message="tns:INewsdeskPaperService_GetAllArticlesTopFive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllArticles">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskPaperService/GetAllArticles" message="tns:INewsdeskPaperService_GetAllArticles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskPaperService/GetAllArticlesResponse" message="tns:INewsdeskPaperService_GetAllArticles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllArticlesInCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskPaperService/GetAllArticlesInCategory" message="tns:INewsdeskPaperService_GetAllArticlesInCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskPaperService/GetAllArticlesInCategoryResponse" message="tns:INewsdeskPaperService_GetAllArticlesInCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterSubscriber">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskPaperService/RegisterSubscriber" message="tns:INewsdeskPaperService_RegisterSubscriber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskPaperService/RegisterSubscriberResponse" message="tns:INewsdeskPaperService_RegisterSubscriber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnRegisterSubscriber">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskPaperService/UnRegisterSubscriber" message="tns:INewsdeskPaperService_UnRegisterSubscriber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskPaperService/UnRegisterSubscriberResponse" message="tns:INewsdeskPaperService_UnRegisterSubscriber_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_INewsdeskPaperService" type="tns:INewsdeskPaperService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendEmailHasRegister">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskPaperService/SendEmailHasRegister" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmailHasUnRegister">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskPaperService/SendEmailHasUnRegister" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCategories">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskPaperService/GetAllCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllArticlesTopFive">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskPaperService/GetAllArticlesTopFive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllArticles">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskPaperService/GetAllArticles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllArticlesInCategory">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskPaperService/GetAllArticlesInCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterSubscriber">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskPaperService/RegisterSubscriber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnRegisterSubscriber">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskPaperService/UnRegisterSubscriber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NewsdeskPaperService">
+    <wsdl:port name="BasicHttpBinding_INewsdeskPaperService" binding="tns:BasicHttpBinding_INewsdeskPaperService">
+      <soap:address location="http://localhost:49799/NewsdeskPaperService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

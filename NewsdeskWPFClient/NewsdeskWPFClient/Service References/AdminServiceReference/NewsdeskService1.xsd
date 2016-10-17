@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DomainClasses" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DomainClasses" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfCategoryToClient">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CategoryToClient" nillable="true" type="tns:CategoryToClient" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCategoryToClient" nillable="true" type="tns:ArrayOfCategoryToClient" />
+  <xs:complexType name="CategoryToClient">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsSelected" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CategoryToClient" nillable="true" type="tns:CategoryToClient" />
+  <xs:complexType name="ArrayOfAuthorToClient">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AuthorToClient" nillable="true" type="tns:AuthorToClient" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAuthorToClient" nillable="true" type="tns:ArrayOfAuthorToClient" />
+  <xs:complexType name="AuthorToClient">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsApproved" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsEditor" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSelected" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuthorToClient" nillable="true" type="tns:AuthorToClient" />
+  <xs:complexType name="Author">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Articles" nillable="true" type="tns:ArrayOfArticle" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsApproved" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsEditor" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Author" nillable="true" type="tns:Author" />
+  <xs:complexType name="ArrayOfArticle">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Article" nillable="true" type="tns:Article" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfArticle" nillable="true" type="tns:ArrayOfArticle" />
+  <xs:complexType name="Article">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ArticleBody" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Authors" nillable="true" type="tns:ArrayOfAuthor" />
+      <xs:element minOccurs="0" name="Categories" nillable="true" type="tns:ArrayOfCategory" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsApproved" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Preamble" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PublishDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Article" nillable="true" type="tns:Article" />
+  <xs:complexType name="ArrayOfAuthor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Author" nillable="true" type="tns:Author" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAuthor" nillable="true" type="tns:ArrayOfAuthor" />
+  <xs:complexType name="ArrayOfCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Category" nillable="true" type="tns:Category" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCategory" nillable="true" type="tns:ArrayOfCategory" />
+  <xs:complexType name="Category">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Articles" nillable="true" type="tns:ArrayOfArticle" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Subscribers" nillable="true" type="tns:ArrayOfSubscriber" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Category" nillable="true" type="tns:Category" />
+  <xs:complexType name="ArrayOfSubscriber">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Subscriber" nillable="true" type="tns:Subscriber" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSubscriber" nillable="true" type="tns:ArrayOfSubscriber" />
+  <xs:complexType name="Subscriber">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Categories" nillable="true" type="tns:ArrayOfCategory" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Subscriber" nillable="true" type="tns:Subscriber" />
+  <xs:complexType name="ArrayOfArticleToClient">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArticleToClient" nillable="true" type="tns:ArticleToClient" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfArticleToClient" nillable="true" type="tns:ArrayOfArticleToClient" />
+  <xs:complexType name="ArticleToClient">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApproveId" type="xs:int" />
+      <xs:element minOccurs="0" name="ArticleBody" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsApproved" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSelected" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Preamble" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArticleToClient" nillable="true" type="tns:ArticleToClient" />
+</xs:schema>

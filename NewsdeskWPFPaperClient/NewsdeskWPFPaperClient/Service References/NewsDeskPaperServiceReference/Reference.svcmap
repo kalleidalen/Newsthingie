@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5d29e217-ef89-4ea0-ac47-3cba8d178fd3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:49799/NewsdeskPaperService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="NewsdeskPaperService.xsd" MetadataType="Schema" ID="036b1f7c-d5da-47f6-9e95-a0c427723df8" SourceId="1" SourceUrl="http://localhost:49799/NewsdeskPaperService.svc?xsd=xsd1" />
+    <MetadataFile FileName="NewsdeskPaperService1.xsd" MetadataType="Schema" ID="9c58c450-2a75-417d-b5a3-6dc2afe7df7d" SourceId="1" SourceUrl="http://localhost:49799/NewsdeskPaperService.svc?xsd=xsd0" />
+    <MetadataFile FileName="NewsdeskPaperService.disco" MetadataType="Disco" ID="0ab84b73-f5e2-481c-a383-b81b544491ce" SourceId="1" SourceUrl="http://localhost:49799/NewsdeskPaperService.svc?disco" />
+    <MetadataFile FileName="NewsdeskPaperService2.xsd" MetadataType="Schema" ID="febbb0a4-2a1e-436f-bb23-2f8f31566af0" SourceId="1" SourceUrl="http://localhost:49799/NewsdeskPaperService.svc?xsd=xsd3" />
+    <MetadataFile FileName="NewsdeskPaperService3.xsd" MetadataType="Schema" ID="444c6526-9969-46df-b67a-7154de97ec75" SourceId="1" SourceUrl="http://localhost:49799/NewsdeskPaperService.svc?xsd=xsd2" />
+    <MetadataFile FileName="NewsdeskPaperService.wsdl" MetadataType="Wsdl" ID="8d6de205-e7dd-4a36-a172-12ed039690ff" SourceId="1" SourceUrl="http://localhost:49799/NewsdeskPaperService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

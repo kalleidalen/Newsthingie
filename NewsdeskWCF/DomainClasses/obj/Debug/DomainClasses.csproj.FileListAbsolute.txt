@@ -1,0 +1,15 @@
+C:\code\WorkInProgress\Newsdesk\NewsdeskWCF\DomainClasses\bin\Debug\DomainClasses.dll
+C:\code\WorkInProgress\Newsdesk\NewsdeskWCF\DomainClasses\bin\Debug\DomainClasses.pdb
+C:\code\WorkInProgress\Newsdesk\NewsdeskWCF\DomainClasses\obj\Debug\DomainClasses.dll
+C:\code\WorkInProgress\Newsdesk\NewsdeskWCF\DomainClasses\obj\Debug\DomainClasses.pdb
+C:\Users\Mikael\Desktop\old\Newsdesk\NewsdeskWCF\DomainClasses\bin\Debug\DomainClasses.dll
+C:\Users\Mikael\Desktop\old\Newsdesk\NewsdeskWCF\DomainClasses\bin\Debug\DomainClasses.pdb
+C:\Users\Mikael\Desktop\old\Newsdesk\NewsdeskWCF\DomainClasses\obj\Debug\DomainClasses.csprojResolveAssemblyReference.cache
+C:\Users\Mikael\Desktop\old\Newsdesk\NewsdeskWCF\DomainClasses\obj\Debug\DomainClasses.dll
+C:\Users\Mikael\Desktop\old\Newsdesk\NewsdeskWCF\DomainClasses\obj\Debug\DomainClasses.pdb
+C:\code\WorkInProgress\Newsdesk\NewsdeskWCF\DomainClasses\obj\Debug\DomainClasses.csprojResolveAssemblyReference.cache
+C:\Users\karlj\Desktop\MMtenta\NewsdeskWCF\DomainClasses\bin\Debug\DomainClasses.dll
+C:\Users\karlj\Desktop\MMtenta\NewsdeskWCF\DomainClasses\bin\Debug\DomainClasses.pdb
+C:\Users\karlj\Desktop\MMtenta\NewsdeskWCF\DomainClasses\obj\Debug\DomainClasses.csprojResolveAssemblyReference.cache
+C:\Users\karlj\Desktop\MMtenta\NewsdeskWCF\DomainClasses\obj\Debug\DomainClasses.dll
+C:\Users\karlj\Desktop\MMtenta\NewsdeskWCF\DomainClasses\obj\Debug\DomainClasses.pdb

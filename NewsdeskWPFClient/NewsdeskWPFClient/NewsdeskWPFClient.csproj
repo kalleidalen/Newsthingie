@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D4784DFC-4145-4553-8DD0-A240E4727C42}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NewsdeskWPFClient</RootNamespace>
+    <AssemblyName>NewsdeskWPFClient</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Controls.Ribbon" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Service References\AdminServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\AcceptAuthorViewModel.cs" />
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\ModifyArticleViewModel.cs" />
+    <Compile Include="ViewModel\PasswordHelper.cs" />
+    <Compile Include="ViewModel\RegistrationViewModel.cs" />
+    <Compile Include="View\AcceptAuthorControl.xaml.cs">
+      <DependentUpon>AcceptAuthorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ModifyArticleControl.xaml.cs">
+      <DependentUpon>ModifyArticleControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RegistrationView.xaml.cs">
+      <DependentUpon>RegistrationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Command\RelayCommand.cs" />
+    <Compile Include="WYSIWYG\Models\DialogBox.cs" />
+    <Compile Include="WYSIWYG\Models\Format.cs" />
+    <Compile Include="WYSIWYG\Models\Gui.cs" />
+    <Compile Include="WYSIWYG\Models\HideScriptErrors.cs" />
+    <Compile Include="WYSIWYG\Models\Initialization.cs" />
+    <Compile Include="WYSIWYG\Models\Item.cs" />
+    <Compile Include="WYSIWYG\XAML\HtmlEditor.xaml.cs">
+      <DependentUpon>HtmlEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WYSIWYG\XAML\Image.xaml.cs">
+      <DependentUpon>Image.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WYSIWYG\XAML\WebEditor.xaml.cs">
+      <DependentUpon>WebEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WYSIWYG\XAML\WPFWebBrowser.xaml.cs">
+      <DependentUpon>WPFWebBrowser.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\AcceptAuthorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ModifyArticleControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RegistrationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WYSIWYG\XAML\HtmlEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WYSIWYG\XAML\Image.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WYSIWYG\XAML\WebEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WYSIWYG\XAML\WPFWebBrowser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="Resources\Thumbs.db" />
+    <None Include="Service References\AdminServiceReference\NewsdeskService.wsdl" />
+    <None Include="Service References\AdminServiceReference\NewsdeskService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AdminServiceReference\NewsdeskService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AdminServiceReference\NewsdeskService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AdminServiceReference\NewsdeskWPFClient.AdminServiceReference.Article.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminServiceReference\NewsdeskWPFClient.AdminServiceReference.ArticleToClient.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminServiceReference\NewsdeskWPFClient.AdminServiceReference.Author.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminServiceReference\NewsdeskWPFClient.AdminServiceReference.AuthorToClient.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminServiceReference\NewsdeskWPFClient.AdminServiceReference.Category.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminServiceReference\NewsdeskWPFClient.AdminServiceReference.CategoryToClient.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WYSIWYG\Images\backcolor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WYSIWYG\Images\bold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WYSIWYG\Images\bullets.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WYSIWYG\Images\center.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WYSIWYG\Images\center2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WYSIWYG\Images\Color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WYSIWYG\Images\Editor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WYSIWYG\Images\html.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WYSIWYG\Images\ident.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WYSIWYG\Images\image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WYSIWYG\Images\italic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WYSIWYG\Images\LeftAlign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WYSIWYG\Images\link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WYSIWYG\Images\new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WYSIWYG\Images\Numbered.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WYSIWYG\Images\open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WYSIWYG\Images\OutIdent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WYSIWYG\Images\RightAlign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WYSIWYG\Images\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WYSIWYG\Images\UnderLine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WYSIWYG\Images\view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\cancel.png" />
+    <Resource Include="Resources\folder.png" />
+    <Resource Include="Resources\ok.png" />
+    <Resource Include="Resources\web.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New1.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AdminServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AdminServiceReference\NewsdeskService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AdminServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AdminServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AdminServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ArticleImages\airFrance.jpg" />
+    <Resource Include="ArticleImages\boxning.jpg" />
+    <Resource Include="ArticleImages\IS.jpg" />
+    <Resource Include="ArticleImages\mittfil.jpg" />
+    <Resource Include="ArticleImages\påskön.jpg" />
+    <Resource Include="ArticleImages\rabies.jpg" />
+    <Resource Include="ArticleImages\tosca.jpg" />
+    <Resource Include="ArticleImages\ullared.jpg" />
+    <Resource Include="ArticleImages\vagbygge.jpg" />
+    <Resource Include="ArticleImages\Zlatan.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ArticleImages\gear.jpg" />
+    <Resource Include="ArticleImages\putintal.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

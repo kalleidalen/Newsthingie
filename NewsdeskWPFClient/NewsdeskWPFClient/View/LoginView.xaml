@@ -1,0 +1,38 @@
+﻿<Window 
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:vm="clr-namespace:NewsdeskWPFClient.ViewModel" x:Class="NewsdeskWPFClient.View.LoginView"
+ x:Name="LoginWindow"    
+Title="Login" Height="350" Width="525" Background="Bisque">
+ 
+    <Grid>
+<TextBlock Height="23" HorizontalAlignment="Left" Margin="10,10,0,0" Name="LoginHeading" 
+           Text="Login:" VerticalAlignment="Top" FontSize="17" FontStretch="ExtraCondensed"/>
+
+<TextBlock Height="50" HorizontalAlignment="Left" Margin="24,48,0,0" Name="textBlockHeading" 
+           VerticalAlignment="Top" FontSize="12" FontStyle="Italic" Padding="5">
+
+    OBS: Du måste logga in. <LineBreak />
+    Om du inte har ett konto kan du klicka här 
+    <TextBlock><Hyperlink Command="{Binding Register}" FontSize="14" FontStyle="Normal">Skapa konto</Hyperlink></TextBlock>
+    för att registrera ett.</TextBlock>
+
+<TextBlock Height="23" HorizontalAlignment="Left" Margin="66,120,0,0" 
+           Name="lblEmail" Text="Email" VerticalAlignment="Top" Width="67" />
+<TextBlock Height="23" HorizontalAlignment="Left" Margin="58,168,0,0" 
+           Name="lblPassword" Text="Password" VerticalAlignment="Top" Width="77" />
+ <TextBox Height="23" HorizontalAlignment="Left" Margin="118,115,0,0" Text="{Binding TxtEmail, Mode=TwoWay}"
+         Name="txtEmail" VerticalAlignment="Top" Width="247" />
+<PasswordBox Height="23" HorizontalAlignment="Left" Margin="118,168,0,0" 
+        Name="txtPassword" VerticalAlignment="Top" Width="247" 
+        vm:PasswordHelper.Attach="True" vm:PasswordHelper.Password="{Binding TxtPassword, Mode=TwoWay}"/>
+
+<Button Content="Login" Height="23" HorizontalAlignment="Left" Margin="118,211,0,0" 
+        Name="btnLogin" VerticalAlignment="Top" Width="104" Command="{Binding LoginCommand}"/>
+
+        <TextBlock Height="65" HorizontalAlignment="Left" Text="{Binding ErrorMessage}" 
+           VerticalAlignment="Top" Width="400" Margin="70,253,0,0"  OpacityMask="Crimson" Foreground="#FFE5572C"  />
+
+</Grid>
+
+</Window> 

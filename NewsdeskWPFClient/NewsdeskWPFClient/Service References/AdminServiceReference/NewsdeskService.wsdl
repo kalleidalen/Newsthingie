@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="NewsdeskService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:24421/NewsdeskService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:24421/NewsdeskService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:24421/NewsdeskService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DomainClasses" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="INewsdeskService_SendNotDeliveredMail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendNotDeliveredMail" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_SendNotDeliveredMail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendNotDeliveredMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_SendEmailAccountCreated_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailAccountCreated" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_SendEmailAccountCreated_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailAccountCreatedResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_SendEmailToEditorNewAccountCreated_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailToEditorNewAccountCreated" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_SendEmailToEditorNewAccountCreated_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailToEditorNewAccountCreatedResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_GetAllCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCategories" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_GetAllCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_AddCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCategory" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_AddCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_EditCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditCategory" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_EditCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_DeleteCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCategory" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_DeleteCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_GetAllAuthors_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAuthors" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_GetAllAuthors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAuthorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_GetAllArticlesForAnAuthor_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllArticlesForAnAuthor" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_GetAllArticlesForAnAuthor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllArticlesForAnAuthorResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_GetAllAuthorsForArticleToClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAuthorsForArticleToClient" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_GetAllAuthorsForArticleToClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAuthorsForArticleToClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_CreateAuthor_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAuthor" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_CreateAuthor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAuthorResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_EditAuthor_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditAuthor" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_EditAuthor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditAuthorResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_DeleteAuthor_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAuthor" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_DeleteAuthor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAuthorResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_ValidateAuthorLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateAuthorLogin" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_ValidateAuthorLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateAuthorLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_AuthorIsApproved_InputMessage">
+    <wsdl:part name="parameters" element="tns:AuthorIsApproved" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_AuthorIsApproved_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthorIsApprovedResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_SetAuthorToEditor_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetAuthorToEditor" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_SetAuthorToEditor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetAuthorToEditorResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_SetAuthorNotToEditor_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetAuthorNotToEditor" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_SetAuthorNotToEditor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetAuthorNotToEditorResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_GetAllArticles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllArticles" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_GetAllArticles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllArticlesResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_GetAllCategoriesInArticle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCategoriesInArticle" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_GetAllCategoriesInArticle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCategoriesInArticleResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_GetAllAuthorsForArticle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAuthorsForArticle" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_GetAllAuthorsForArticle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAuthorsForArticleResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_GetAllCategoriesForArticleToClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCategoriesForArticleToClient" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_GetAllCategoriesForArticleToClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCategoriesForArticleToClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_CreateArticle_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateArticle" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_CreateArticle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateArticleResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_GetArticle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetArticle" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_GetArticle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetArticleResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_UpdateArticle_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateArticle" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_UpdateArticle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateArticleResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_DeleteArticle_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteArticle" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_DeleteArticle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteArticleResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_SetArticleIsApproved_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetArticleIsApproved" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_SetArticleIsApproved_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetArticleIsApprovedResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_SetArticleIsNotApproved_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetArticleIsNotApproved" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_SetArticleIsNotApproved_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetArticleIsNotApprovedResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_SetAcceptAuthor_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetAcceptAuthor" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_SetAcceptAuthor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetAcceptAuthorResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_SetNotAcceptAuthor_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetNotAcceptAuthor" />
+  </wsdl:message>
+  <wsdl:message name="INewsdeskService_SetNotAcceptAuthor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetNotAcceptAuthorResponse" />
+  </wsdl:message>
+  <wsdl:portType name="INewsdeskService">
+    <wsdl:operation name="SendNotDeliveredMail">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/SendNotDeliveredMail" message="tns:INewsdeskService_SendNotDeliveredMail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/SendNotDeliveredMailResponse" message="tns:INewsdeskService_SendNotDeliveredMail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEmailAccountCreated">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/SendEmailAccountCreated" message="tns:INewsdeskService_SendEmailAccountCreated_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/SendEmailAccountCreatedResponse" message="tns:INewsdeskService_SendEmailAccountCreated_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEmailToEditorNewAccountCreated">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/SendEmailToEditorNewAccountCreated" message="tns:INewsdeskService_SendEmailToEditorNewAccountCreated_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/SendEmailToEditorNewAccountCreatedResponse" message="tns:INewsdeskService_SendEmailToEditorNewAccountCreated_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/GetAllCategories" message="tns:INewsdeskService_GetAllCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/GetAllCategoriesResponse" message="tns:INewsdeskService_GetAllCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/AddCategory" message="tns:INewsdeskService_AddCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/AddCategoryResponse" message="tns:INewsdeskService_AddCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/EditCategory" message="tns:INewsdeskService_EditCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/EditCategoryResponse" message="tns:INewsdeskService_EditCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/DeleteCategory" message="tns:INewsdeskService_DeleteCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/DeleteCategoryResponse" message="tns:INewsdeskService_DeleteCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAuthors">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/GetAllAuthors" message="tns:INewsdeskService_GetAllAuthors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/GetAllAuthorsResponse" message="tns:INewsdeskService_GetAllAuthors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllArticlesForAnAuthor">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/GetAllArticlesForAnAuthor" message="tns:INewsdeskService_GetAllArticlesForAnAuthor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/GetAllArticlesForAnAuthorResponse" message="tns:INewsdeskService_GetAllArticlesForAnAuthor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAuthorsForArticleToClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/GetAllAuthorsForArticleToClient" message="tns:INewsdeskService_GetAllAuthorsForArticleToClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/GetAllAuthorsForArticleToClientResponse" message="tns:INewsdeskService_GetAllAuthorsForArticleToClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAuthor">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/CreateAuthor" message="tns:INewsdeskService_CreateAuthor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/CreateAuthorResponse" message="tns:INewsdeskService_CreateAuthor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditAuthor">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/EditAuthor" message="tns:INewsdeskService_EditAuthor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/EditAuthorResponse" message="tns:INewsdeskService_EditAuthor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAuthor">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/DeleteAuthor" message="tns:INewsdeskService_DeleteAuthor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/DeleteAuthorResponse" message="tns:INewsdeskService_DeleteAuthor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateAuthorLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/ValidateAuthorLogin" message="tns:INewsdeskService_ValidateAuthorLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/ValidateAuthorLoginResponse" message="tns:INewsdeskService_ValidateAuthorLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthorIsApproved">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/AuthorIsApproved" message="tns:INewsdeskService_AuthorIsApproved_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/AuthorIsApprovedResponse" message="tns:INewsdeskService_AuthorIsApproved_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAuthorToEditor">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/SetAuthorToEditor" message="tns:INewsdeskService_SetAuthorToEditor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/SetAuthorToEditorResponse" message="tns:INewsdeskService_SetAuthorToEditor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAuthorNotToEditor">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/SetAuthorNotToEditor" message="tns:INewsdeskService_SetAuthorNotToEditor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/SetAuthorNotToEditorResponse" message="tns:INewsdeskService_SetAuthorNotToEditor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllArticles">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/GetAllArticles" message="tns:INewsdeskService_GetAllArticles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/GetAllArticlesResponse" message="tns:INewsdeskService_GetAllArticles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCategoriesInArticle">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/GetAllCategoriesInArticle" message="tns:INewsdeskService_GetAllCategoriesInArticle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/GetAllCategoriesInArticleResponse" message="tns:INewsdeskService_GetAllCategoriesInArticle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAuthorsForArticle">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/GetAllAuthorsForArticle" message="tns:INewsdeskService_GetAllAuthorsForArticle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/GetAllAuthorsForArticleResponse" message="tns:INewsdeskService_GetAllAuthorsForArticle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCategoriesForArticleToClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/GetAllCategoriesForArticleToClient" message="tns:INewsdeskService_GetAllCategoriesForArticleToClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/GetAllCategoriesForArticleToClientResponse" message="tns:INewsdeskService_GetAllCategoriesForArticleToClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateArticle">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/CreateArticle" message="tns:INewsdeskService_CreateArticle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/CreateArticleResponse" message="tns:INewsdeskService_CreateArticle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArticle">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/GetArticle" message="tns:INewsdeskService_GetArticle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/GetArticleResponse" message="tns:INewsdeskService_GetArticle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateArticle">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/UpdateArticle" message="tns:INewsdeskService_UpdateArticle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/UpdateArticleResponse" message="tns:INewsdeskService_UpdateArticle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteArticle">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/DeleteArticle" message="tns:INewsdeskService_DeleteArticle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/DeleteArticleResponse" message="tns:INewsdeskService_DeleteArticle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetArticleIsApproved">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/SetArticleIsApproved" message="tns:INewsdeskService_SetArticleIsApproved_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/SetArticleIsApprovedResponse" message="tns:INewsdeskService_SetArticleIsApproved_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetArticleIsNotApproved">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/SetArticleIsNotApproved" message="tns:INewsdeskService_SetArticleIsNotApproved_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/SetArticleIsNotApprovedResponse" message="tns:INewsdeskService_SetArticleIsNotApproved_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAcceptAuthor">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/SetAcceptAuthor" message="tns:INewsdeskService_SetAcceptAuthor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/SetAcceptAuthorResponse" message="tns:INewsdeskService_SetAcceptAuthor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetNotAcceptAuthor">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsdeskService/SetNotAcceptAuthor" message="tns:INewsdeskService_SetNotAcceptAuthor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsdeskService/SetNotAcceptAuthorResponse" message="tns:INewsdeskService_SetNotAcceptAuthor_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_INewsdeskService" type="tns:INewsdeskService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendNotDeliveredMail">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/SendNotDeliveredMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmailAccountCreated">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/SendEmailAccountCreated" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmailToEditorNewAccountCreated">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/SendEmailToEditorNewAccountCreated" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCategories">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/GetAllCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCategory">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/AddCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditCategory">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/EditCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCategory">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/DeleteCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAuthors">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/GetAllAuthors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllArticlesForAnAuthor">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/GetAllArticlesForAnAuthor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAuthorsForArticleToClient">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/GetAllAuthorsForArticleToClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAuthor">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/CreateAuthor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditAuthor">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/EditAuthor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAuthor">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/DeleteAuthor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateAuthorLogin">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/ValidateAuthorLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthorIsApproved">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/AuthorIsApproved" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAuthorToEditor">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/SetAuthorToEditor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAuthorNotToEditor">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/SetAuthorNotToEditor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllArticles">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/GetAllArticles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCategoriesInArticle">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/GetAllCategoriesInArticle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAuthorsForArticle">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/GetAllAuthorsForArticle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCategoriesForArticleToClient">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/GetAllCategoriesForArticleToClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateArticle">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/CreateArticle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArticle">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/GetArticle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateArticle">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/UpdateArticle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteArticle">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/DeleteArticle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetArticleIsApproved">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/SetArticleIsApproved" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetArticleIsNotApproved">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/SetArticleIsNotApproved" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAcceptAuthor">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/SetAcceptAuthor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetNotAcceptAuthor">
+      <soap:operation soapAction="http://tempuri.org/INewsdeskService/SetNotAcceptAuthor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NewsdeskService">
+    <wsdl:port name="BasicHttpBinding_INewsdeskService" binding="tns:BasicHttpBinding_INewsdeskService">
+      <soap:address location="http://localhost:24421/NewsdeskService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

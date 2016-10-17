@@ -1,0 +1,188 @@
+﻿<Window xmlns:View="clr-namespace:NewsdeskWPFPaperClient.View"  x:Class="NewsdeskWPFPaperClient.View.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:NewsdeskWPFPaperClient.ViewModel"
+        xmlns:Utility="clr-namespace:NewsdeskWPFPaperClient.Utility"
+         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:ei="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
+        Title="MainView" Height="700" Width="900" MaxWidth="900">
+
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+       
+        <Style x:Key="NewsHeader" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="georgia,serif"/>
+            <Setter Property="FontSize" Value="30px" />
+            <Setter Property="Padding" Value="8,4" />
+            <Setter Property="Margin" Value="4" />
+        </Style>
+        <Style x:Key="NewsPreamble" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#0064a7"/>
+            <Setter Property="FontFamily" Value="georgia,serif"/>
+            <Setter Property="FontSize" Value="14px" />
+            <Setter Property="Padding" Value="8,0,0,0" />
+            <Setter Property="Margin" Value="4,-10,0,0" />
+        </Style>
+        <Style x:Key="NewsPreambleOnArticle" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="georgia,serif"/>
+            <Setter Property="FontSize" Value="14px" />
+            <Setter Property="Padding" Value="8,0,0,0" />
+            <Setter Property="Margin" Value="4,-10,0,0" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="149*"/>
+            <ColumnDefinition Width="70*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="62*"/>
+            <RowDefinition Height="223*"/>
+            <RowDefinition Height="510*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <Image Source="pack://application:,,,/Images/daggnatt.jpg"  />
+        </StackPanel>
+
+        <WrapPanel  Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" 
+                    Grid.RowSpan="2"  Width="220" Margin="0,0,20,0"
+                    Visibility="{Binding ArticleListVisibility, Converter={StaticResource BoolToVis}}">
+            <GroupBox BorderBrush="Black" Width="220"
+                  BorderThickness="2" Header="SENASTE NYTT">
+                <WrapPanel>
+                    <ListBox ItemsSource="{Binding ArticleListTopFive}" SelectedItem="{Binding SelectedArticle}" Background="#0B000000" Width="220">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="PreviewMouseDown">
+                                <i:InvokeCommandAction                             
+                                 Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListBox}}, Path=DataContext.TopFiveMenuButtonDown}"
+                                 CommandParameter="{Binding ElementName=boxCategoryList}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <ListBox.ItemTemplate>
+                            <HierarchicalDataTemplate>
+                                <WrapPanel >
+                                    <TextBlock Text="{Binding Path=UpdatedDate, StringFormat=HH:mm}" />
+                                    <TextBlock Text=" "></TextBlock>
+                                    <TextBlock Text="{Binding Title}" />
+
+                                </WrapPanel>
+                                
+                            </HierarchicalDataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                </WrapPanel>
+                </GroupBox>
+        </WrapPanel>
+        <WrapPanel  Grid.Row="4" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Grid.RowSpan="2" Width="220" Margin="0,0,20,0"
+                    Visibility="{Binding ArticleListVisibility, Converter={StaticResource BoolToVis}}">
+            <GroupBox BorderBrush="Black" Width="220" 
+                  BorderThickness="2" Header="Vill du bli prenumerant?">
+                <WrapPanel>
+                    <GroupBox Grid.Column="1" Grid.Row="2" BorderBrush="Black" 
+                  BorderThickness="0" Header="Välj kategori">
+                        <StackPanel>
+                        <ListBox ItemsSource="{Binding CategoryList, Mode=TwoWay}" Height="177" Width="190" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#0B000000">
+                            <ListBox.ItemTemplate>
+                                <HierarchicalDataTemplate>
+                                        <CheckBox Content="{Binding Name}" 
+                                                  x:Name="chkBox" Tag="{Binding Id}" IsChecked="{Binding CategoryList.IsSelected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                   Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListBox}}, Path=DataContext.ChangeState, Mode=TwoWay}"
+                                   CommandParameter="{Binding ElementName=chkBox}"/>
+                                </HierarchicalDataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                       
+                            <StackPanel>
+                                <TextBlock Text="Ange din e-postadress" Width="200"></TextBlock>
+                                <TextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,5"></TextBox>
+                                <Button Content="Skapa prenumeration" Command="{Binding RegisterAsSubscriber}" Margin="0,0,0,5"></Button>
+                                <Button Content="Avbryt prenumeration" Command="{Binding UnRegisterAsSubscriber}"></Button>
+                            </StackPanel>
+                        </StackPanel>
+                        
+                    </GroupBox>
+                </WrapPanel>
+            </GroupBox>
+
+        </WrapPanel>
+        <WrapPanel Orientation="Horizontal" Grid.Row="2" Width="900" Grid.ColumnSpan="2" Margin="0,0,-8,0">
+            <!--<Grid Visibility="{Binding ArticleVisibility, Converter={StaticResource BoolToVis}}" Margin="10,0,0,0" >-->
+              
+                <!--<Grid Name="backgroundGrid" Width="32" Height="32" Visibility="{Binding ArticleVisibility, Converter={StaticResource BoolToVis}}" Margin="0,0,0,0">
+                    <Path  Data="M50.5,4.7500001C25.232973,4.75 4.75,25.232973 4.7500001,50.5 4.75,75.767029 25.232973,96.25 50.5,96.25 75.767029,96.25 96.25,75.767029 96.25,50.5 96.25,25.232973 75.767029,4.75 50.5,4.7500001z M50.5,0C78.390381,0 101,22.609621 101,50.5 101,78.390381 78.390381,101 50.5,101 22.609621,101 0,78.390381 0,50.5 0,22.609621 22.609621,0 50.5,0z" Stretch="Fill" Fill="#FF000000" Name="Stroke" Visibility="Visible" />
+                </Grid>
+                <Path Data="F1M-800.86,-1379.55L-781.99,-1360.68 -782.125,-1360.54 -792.356,-1360.54 -809.825,-1378.01 -815.075,-1383.26 -792.494,-1405.84 -781.99,-1405.84 -800.86,-1386.97 -751.074,-1386.97 -751.074,-1379.55 -800.86,-1379.55z" Stretch="Uniform" Fill="#FF000000" Width="24" Height="24" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <TransformGroup.Children>
+                                <RotateTransform Angle="0" />
+                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                            </TransformGroup.Children>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+            </Grid>-->
+            <ListBox Name="boxCategoryList"  ItemsSource="{Binding CategoryList}" DisplayMemberPath="Name" 
+                     SelectedItem="{Binding SelectedCategory}" BorderThickness="0,1,0,1" BorderBrush="LightGray" Margin="0,5,0,5" >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="PreviewMouseDown">
+                        <i:InvokeCommandAction                             
+                                 Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListBox}}, Path=DataContext.MenuButtonDown}"
+                                 CommandParameter="{Binding ElementName=boxCategoryList}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+
+                <ListBox.ItemContainerStyle>                    
+                    <Style TargetType="ListBoxItem">                        
+                        <Setter Property="Margin" Value="22,0,23,0" />                       
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        </WrapPanel>
+        <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Row="3" Width="900"  Visibility="{Binding ArticleListVisibility, Converter={StaticResource BoolToVis}}" 
+                   Grid.ColumnSpan="2" Margin="0,0,-8,0" Grid.RowSpan="2">
+
+            <WrapPanel>
+                <ListBox ItemsSource="{Binding ArticleList}"  SelectedItem="{Binding SelectedArticle}" 
+                 SelectedIndex="-1" BorderThickness="0" Foreground="Black">
+
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Title}" Style="{StaticResource NewsHeader}"  />
+                                <TextBlock Text="{Binding Preamble}" Style="{StaticResource NewsPreamble}"   />
+                                <Border BorderBrush="LightGray" BorderThickness="0,0,0,1" >
+                                    <TextBlock  Width="600"></TextBlock>
+                                </Border>
+                            </StackPanel>
+
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </WrapPanel>
+
+        </WrapPanel>
+        <WrapPanel Orientation="Horizontal" Grid.Row="3" Width="800" Visibility="{Binding ArticleVisibility, Converter={StaticResource BoolToVis}}" Grid.ColumnSpan="2" Margin="146,0" Grid.RowSpan="2" >
+            <ScrollViewer x:Name="MyScrollViewer" HorizontalScrollBarVisibility="Auto"
+                VerticalScrollBarVisibility="Auto">
+                <WrapPanel Orientation="Vertical" HorizontalAlignment="Left">
+                    <TextBlock Text="{Binding SelectedArticle.Title}" Style="{StaticResource NewsHeader}"  />
+                    <TextBlock Text="{Binding SelectedArticle.Preamble}" Style="{StaticResource NewsPreamble}"  />
+                    <WebBrowser Utility:WebBrowserUtility.BindableSource="{Binding Path=SelectedArticle.ArticleBody}" Height="500" Width="650"/>
+                </WrapPanel>
+            </ScrollViewer>
+        </WrapPanel>
+
+    </Grid>
+</Window>

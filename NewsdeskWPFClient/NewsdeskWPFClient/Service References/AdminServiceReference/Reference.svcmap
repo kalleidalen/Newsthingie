@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d1f27483-eb21-490b-9248-027cbcddd7f0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:24421/NewsdeskService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="NewsdeskService.disco" MetadataType="Disco" ID="63765c86-42f2-4856-b140-1ea54ffcb074" SourceId="1" SourceUrl="http://localhost:24421/NewsdeskService.svc?disco" />
+    <MetadataFile FileName="NewsdeskService.xsd" MetadataType="Schema" ID="61930fc1-1f06-415f-bb39-b964c1c73a98" SourceId="1" SourceUrl="http://localhost:24421/NewsdeskService.svc?xsd=xsd1" />
+    <MetadataFile FileName="NewsdeskService1.xsd" MetadataType="Schema" ID="9c7ad652-98ce-4255-95b2-b6166f88d9eb" SourceId="1" SourceUrl="http://localhost:24421/NewsdeskService.svc?xsd=xsd2" />
+    <MetadataFile FileName="NewsdeskService2.xsd" MetadataType="Schema" ID="87523218-ce1c-4473-8d02-fb1b77e2c3d3" SourceId="1" SourceUrl="http://localhost:24421/NewsdeskService.svc?xsd=xsd0" />
+    <MetadataFile FileName="NewsdeskService.wsdl" MetadataType="Wsdl" ID="7167b6f6-9c9f-4385-9437-3ad21407ca33" SourceId="1" SourceUrl="http://localhost:24421/NewsdeskService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

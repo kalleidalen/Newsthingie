@@ -1,0 +1,151 @@
+﻿<Window xmlns:View="clr-namespace:NewsdeskWPFClient.View"  
+        x:Class="NewsdeskWPFClient.View.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:NewsdeskWPFClient.ViewModel"
+        Title="Huvudmeny" Height="800" Width="700" Closing="Window_Closing">
+    
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <WrapPanel Grid.Column="1" Grid.Row="0"  VerticalAlignment="Top" Visibility="{Binding IsEditor, Converter={StaticResource BoolToVis}}">
+            <GroupBox BorderBrush="Black" 
+                  BorderThickness="2" Header="Lägg till, ändra eller ta bort kategori">
+                <WrapPanel>
+                    <GroupBox Grid.Column="1" Grid.Row="2" BorderBrush="Black" 
+                  BorderThickness="0" Header="Välj kategori">
+
+
+                        <ListBox Name="boxCategory" Grid.Column="1" HorizontalAlignment="Left" Height="100" 
+                 Margin="10,10,0,0" VerticalAlignment="Top" Width="270" SelectedItem="{Binding SelectedCategory}"
+                 ItemsSource="{Binding CategoryList, Mode=TwoWay}" DisplayMemberPath="Name"/>
+                    </GroupBox>
+                    <StackPanel Grid.Column="0">
+                        <WrapPanel>
+                            <TextBlock Name="lblCategoryName" Text="Namn: "  />
+                            <TextBox Width="230" Text="{Binding NewCategoryName, UpdateSourceTrigger=PropertyChanged}"
+                         HorizontalAlignment="Right" Margin="15,0,0,0"/>
+                        </WrapPanel>
+                    </StackPanel>
+                    <WrapPanel>
+                        <Button Width="80" Height="30" Margin="0,15,0,0" 
+                        HorizontalAlignment="Center" Content="Lägg till" Command="{Binding CreateCategory}" />
+                        <Button  Width="90" Height="30" Margin="10,15,0,0" 
+                        HorizontalAlignment="Center" Content="Ändra" Command="{Binding EditCategory}" />
+                        <Button  Width="90" Height="30" Margin="10,15,0,0" 
+                        HorizontalAlignment="Center" Content="Radera" Command="{Binding DeleteCategory}" />
+                    </WrapPanel>
+                </WrapPanel>
+
+            </GroupBox>
+
+        </WrapPanel>
+
+        <WrapPanel Grid.Column="{Binding GridColumnEditor}" Grid.Row="{Binding GridRowEditor}" VerticalAlignment="Top">
+            <GroupBox Grid.Column="1" Grid.Row="2" BorderBrush="Black" 
+                  BorderThickness="2" Header="Lägg till, ändra eller ta bort artikel">
+                <WrapPanel>
+                    <GroupBox Grid.Column="1" Grid.Row="2" BorderBrush="Black" 
+                  BorderThickness="0" Header="Välj artikel">
+                        <WrapPanel>
+                            <ListBox
+                    Name="boxAuthors" 
+                    Width="270" Height="70"
+                         ItemsSource="{Binding ArticleList}" 
+                         DisplayMemberPath="Title"
+                         SelectionMode="Single">
+                                <ListBox.ItemContainerStyle >
+                                    <Style TargetType="{x:Type ListBoxItem}">
+                                        <Setter Property="IsSelected" Value="{Binding Mode=TwoWay, Path=IsSelected}" />
+                                    </Style>
+                                </ListBox.ItemContainerStyle>
+                            </ListBox>
+
+                        </WrapPanel>
+                    </GroupBox>
+                    <WrapPanel Grid.Column="1" Grid.Row="1" Margin="0,0,0,15">
+                        <Button Width="80" Height="30" Margin="0,15,0,0" 
+                        HorizontalAlignment="Center" Content="Lägg till" Command="{Binding OpenEdit}" />
+                        <Button  Width="90" Height="30" Margin="10,15,0,0" 
+                        HorizontalAlignment="Center" Content="Ändra" Command="{Binding OpenEditWithDoc}" />
+                        <Button  Width="90" Height="30" Margin="10,15,0,0" 
+                        HorizontalAlignment="Center" Content="Radera" Command="{Binding DeleteArticle}" />
+                    </WrapPanel>
+                </WrapPanel>
+
+            </GroupBox>
+        </WrapPanel>
+
+        <WrapPanel Grid.Column="0" Grid.Row="0" VerticalAlignment="Top" Visibility="{Binding IsEditor, Converter={StaticResource BoolToVis}}">
+            <GroupBox Grid.Column="1" Grid.Row="2" BorderBrush="Black" MinWidth="270" MinHeight="220"
+                  BorderThickness="2" Header="Ej godkända författare">
+                <WrapPanel>
+                    <View:AcceptAuthorControl  />
+                </WrapPanel>
+            </GroupBox>
+        </WrapPanel>
+
+        <WrapPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Visibility="{Binding IsEditor, Converter={StaticResource BoolToVis}}">
+            <GroupBox Grid.Column="1" Grid.Row="2" BorderBrush="Black"  MinWidth="270" MinHeight="175"
+                  BorderThickness="2" Header="Ej godkända artiklar">
+                <WrapPanel>
+                    <ListBox ItemsSource="{Binding NotApprovedArticleList}" 
+                 SelectedIndex="-1" Foreground="Black" >
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <WrapPanel>
+                                    <TextBlock Text="Namn: " />
+                                    <TextBlock Text="{Binding Title}" FontWeight="Bold" />
+                                    <TextBlock Text=", " />
+                                    <TextBlock Text="Godkänn: " />
+                                    <CheckBox  x:Name="chkBox" IsChecked="{Binding IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                   Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListBox}}, Path=DataContext.ChangeState}"
+                                   CommandParameter="{Binding ElementName=chkBox}" Tag="{Binding Id}"/>
+
+                                </WrapPanel>
+
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </WrapPanel>
+            </GroupBox>
+        </WrapPanel>
+
+        <WrapPanel Grid.Column="0" Grid.Row="3" VerticalAlignment="Top" Visibility="{Binding IsEditor, Converter={StaticResource BoolToVis}}">
+            <GroupBox Grid.Column="1" Grid.Row="2" BorderBrush="Black"  MinWidth="270" MinHeight="175"
+                  BorderThickness="2" Header="Ändra behörighet">
+                <WrapPanel>
+
+                    <ListBox x:Name="AllAuthors"  ItemsSource="{Binding AuthorListAll}" 
+                 SelectedIndex="-1" Foreground="Black" >
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <WrapPanel Visibility="{Binding IsApproved, Converter={StaticResource BoolToVis}}">
+                                    <TextBlock Text="Namn: " />
+                                    <TextBlock Text="{Binding FullName}" FontWeight="Bold" />
+                                    <TextBlock Text=", " />
+                                    <TextBlock Text="Admin: " />
+                                    <CheckBox x:Name="chkBoxApproved"  IsChecked="{Binding IsEditor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                   Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListBox}}, Path=DataContext.ChangeEdit}"
+                                   CommandParameter="{Binding ElementName=chkBoxApproved}" Tag="{Binding Id}"/>
+                                </WrapPanel>
+
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                </WrapPanel>
+            </GroupBox>
+        </WrapPanel>
+    </Grid>
+</Window>
